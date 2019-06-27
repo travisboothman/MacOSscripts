@@ -1,0 +1,6 @@
+#!/bin/sh
+if $(networksetup -listpreferredwirelessnetworks en0 | grep -q "network name"); then
+    echo '<result>TRUE</result>'
+else
+    echo '<result>FALSE</result>'
+fi
