@@ -1,0 +1,5 @@
+#!/bin/sh
+
+result=`/usr/sbin/networksetup -getairportnetwork en0 | awk '{ print $4 }'`
+
+echo "<result>$result</result>"
