@@ -1,5 +1,7 @@
 #!/bin/sh
 
+## Extension attribute to print the current wireless network ## 
+
 result=`/usr/sbin/networksetup -getairportnetwork en0 | awk '{ print $4 }'`
 
 echo "<result>$result</result>"
