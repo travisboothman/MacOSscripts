@@ -1,7 +1,0 @@
-#!/bin/sh
-if [ -f "INSERT FILE PATH HERE"
-then
-  echo "<result>True</result>"
-else
-  echo "<result>False</result>"
-fi

@@ -1,0 +1,37 @@
+#!/bin/zsh
+
+## Does file, directory, etc exist template ## 
+
+FILE_PATH=/path/to/your/file
+
+if [[ -e "$FILE_PATH" ]]; then
+	echo "The file exists."
+fi
+
+if [[ -f "$FILE_PATH" ]]; then
+	echo "The file is a regular file."
+fi
+
+if [[ -d "$FILE_PATH" ]]; then
+	echo "The file is a directory."
+fi
+
+if [[ -s "$FILE_PATH" ]]; then
+	echo "The file is not empty."
+fi
+
+if [[ -L "$FILE_PATH" ]]; then
+	echo "The file is a symbolic link."
+fi
+
+if [[ -p "$FILE_PATH" ]]; then
+	echo "The file is a named pipe (FIFO)."
+fi
+
+if [[ -b "$FILE_PATH" ]]; then
+	echo "The file is a block special file (device)."
+fi
+
+if [[ -c "$FILE_PATH" ]]; then
+	echo "The file is a character special file (device)."
+fi
