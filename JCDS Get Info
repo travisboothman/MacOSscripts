@@ -1,0 +1,22 @@
+#!/bin/bash
+
+## Variables ##
+jUser="api_user"
+jPass="api_pass"
+basicAuth=$(echo -n "$jUser":"$jPass" | base64)
+jURL="https://company.jamfcloud.com"
+
+
+## Get Bearer Token ##
+
+bToken=$(curl -sk -X POST "$jURL/api/v1/auth/token" -H "accept: application/json" -H "Authorization: Basic $basicAuth" | awk '/token/{print $3}' | tr -d '"'',')
+
+## Get Update Plan from Computer ##
+
+jcdsStatus=$( curl -sk -H "Authorization: Bearer $bToken" -H "content-type: application/xml" "$jURL/api/v1/cloud-distribution-point/upload-capability" -X GET )
+
+echo "$jcdsStatus"
+
+jcdsFiles=$( curl -sk -H "Authorization: Bearer $bToken" -H "content-type: application/xml" "$jURL/api/v1/jcds/files" -X GET )
+
+echo "$jcdsFiles"
